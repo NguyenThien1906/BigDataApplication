@@ -19,3 +19,9 @@
   + Report: refill the rest and readjust the report.
   + Presentation: Experiment: RQ2+4 (dependency: S3-EX)
   + Presentation: Demonstration (dependency: S4-DEMO)
+- **Sprint 6 (25/03/07 - 25/03/10).**
+  + ...
+- **Sprint 7 (25/03/11 - 25/03/13).**
+  + ...
+ 
+Deadline(?): Sat, 25/03/15.
