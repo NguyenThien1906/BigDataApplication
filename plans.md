@@ -1,8 +1,8 @@
 ### Sprint plans:
 - **Sprint 1 (25/02/18 - 25/02/20).**
-  + Report (text + image): Contrastive Knowledge Distillation.
-  + Report (text + image): Component Models.
-  + Report (text + image): Abstract + Problem.
+  + \[Kiệt\] Report (text + image): Contrastive Knowledge Distillation.
+  + \[Thiện\] Report (text + image): Component Models.
+  + \[Kiên\] Report (text + image): Abstract + Problem.
 - **Sprint 2 (25/02/21 - 25/02/24).**
   + Report (text + image): Adaptive Contrastive Regularization. (dependency: S1-CKD)
   + Report (text + image): Experiment: Baseline comparisons \[RQ1\] + addressing GNN weaknesses \[RQ3+5\]
