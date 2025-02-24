@@ -4,10 +4,10 @@
   + \[Thiện\] Report (text + image): Component Models.
   + \[Kiên\] Report (text + image): Abstract + Problem.
 - **Sprint 2 (25/02/21 - 25/02/24).**
-  + Report (text + image): Adaptive Contrastive Regularization. (dependency: S1-CKD)
-  + Report (text + image): Experiment: Baseline comparisons \[RQ1\] + addressing GNN weaknesses \[RQ3+5\]
-  + Presentation: CKD + Component Models (dependency: S1-CKD + S1-CM)
-- **Sprint 3 (25/02/25 - 25/02/27).**
+  + \[Thiện\]Report (text + image): Adaptive Contrastive Regularization. (dependency: S1-CKD)
+  + \[Kiệt\] Report (text + image): Experiment: Baseline comparisons \[RQ1\] + addressing GNN weaknesses \[RQ3+5\]
+  + \[Kiên\] Presentation: CKD + Component Models (dependency: S1-CKD + S1-CM)
+- **Sprint 3 (25/02/25 - 25/02/27).** DELAYED
   + Report (text + image): Parameter Learning. (dependency: S2-ACR)
   + Report (text + image): Experiment: model ablation and hyper-parameters \[RQ2+4\].
   + Presentation: Abstract + Problem + ACR (dependency: S1-AP + S2-ACR)
