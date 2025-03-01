@@ -9,11 +9,11 @@
 
 ## Problem
 
-### Title: Anime recommendation system based on user ratings.
+### Title: Real-time anime recommendation system based on user ratings.
 
 ### Description:
 
-Analyze anime ratings dataset using Big Data & Machine Learning tools, in order to recommend animes a user has yet to watch, based on the user's rating history.
+Analyze real-time anime ratings data using Big Data and Machine Learning tools, in order to recommend animes a user has yet to watch, based on the user's rating history.
 
 **Input**: User's rating history on watched animes.
 
@@ -64,9 +64,28 @@ The dataset consists mainly of:
 
 ### Main tasks
 
+1. Data ingestion: Set up Redis database with imported data from the dataset files, and set up data streaming connection.
+
+2. Data streaming & preprocessing: Apache Spark Streaming simulates real-time data from Redis database, then clean and prepare the raw data before feeding into the recommendation system.
+
+3. Real-time RS model training: Pre-built model from MLlib is trained by feeding real-time data, from Spark Streaming.
+
+4. RS in use: Input user's rating history to predict a ranking list for recommended animes which user has not watched.
+
+5. Real-time dashboard: Visualize analyzed data and predictions with NetworkX-assisted Matplotlib. 
+
 ### Assignments
 
+*Note: Date used here is in form YY/MM/DD, time used here is in 24-hour format: HH:MM.*
+
+The main plan is to divide the workload into sprints throughout the span of 4 weeks, starting from 25/03/03 to 25/04/01.
+
+|Sprint no.|Who|Job(s)|Description|Start|Due|Note|
+|---|---|---|---|---|---|---|
+|1|Thiện|Potato|Eat potatoes|25/03/03 00:01|25/03/05 23:59|(Empty)|
+
 ## References
+
 [1] Sajid Uddin (2023). Anime Dataset 2023. *Kaggle: Your Machine Learning and Data Science Community*. https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset?resource=download
 
 [2] Salvatore Sanfilippo (2009). Redis 7.4.2 (2025). https://redis.io 
