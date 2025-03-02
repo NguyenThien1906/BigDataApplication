@@ -35,7 +35,7 @@ The dataset consists mainly of:
 
 **final_animedataset.csv**: Another dataset version containing user ratings and anime details, all in a single file, based on 2018 data (different from **users-score-2023.csv**). It could be used to rapidly and simply test models before putting more effort into further implementations.
 
-## Data processing tool(s)
+## Data storing and processing tool(s)
 
 **Redis** [2]: It is one of the most popular NoSQL database used widely by companies, with reasonable pricing options for students and supports real-time data streaming.
 
@@ -52,7 +52,7 @@ The dataset consists mainly of:
 ## Data visualization
 ### Type(s)
 
-**Network graphs** in order to present the interactions between the observed users and items.
+**Network graph** in order to present the interactions between the observed users and items.
 
 ### Tool(s)
 
@@ -64,26 +64,67 @@ The dataset consists mainly of:
 
 ### Main tasks
 
-1. Data ingestion: Set up Redis database with imported data from the dataset files, and set up data streaming connection.
+1. **Data ingestion**: Set up Redis database with imported data from the dataset files, and set up data streaming connection.
 
-2. Data streaming & preprocessing: Apache Spark Streaming simulates real-time data from Redis database, then clean and prepare the raw data before feeding into the recommendation system.
+2. **Data streaming & preprocessing**: Apache Spark Streaming simulates real-time data from Redis database, then clean and prepare the raw data before feeding into the recommendation system.
 
-3. Real-time RS model training: Pre-built model from MLlib is trained by feeding real-time data, from Spark Streaming.
+3. **Real-time RS model training**: Pre-built model from MLlib is trained by feeding real-time data, from Spark Streaming.
 
-4. RS in use: Input user's rating history to predict a ranking list for recommended animes which user has not watched.
+4. **RS in use**: Input user's rating history to predict a ranking list for recommended animes which user has not watched.
 
-5. Real-time dashboard: Visualize analyzed data and predictions with NetworkX-assisted Matplotlib. 
+5. **Real-time dashboard**: Visualize analyzed data and predictions with NetworkX-assisted Matplotlib.
+
+### Plan timelines
+
+*Note: Date used here is in form (YY/)MM/DD, time used here is in 24-hour format: HH:MM.*
+
+The main plan is to divide the workload into 8 sprints throughout the span of 4 weeks, starting from 03/03 to 04/01, meaning 2 sprints per week.
+
+1. Sprint 1-2 (03/04 - 03/10): Preparation.
+- Set up Redis database from dataset files and configure real-time data streaming to Spark.
+- Figure data preprocessing strategies, perform data preprocessing on dataset using Spark.
+- Set up RS model from MLlib, learn its required input and output forms for training and testing.
+- Figure out how to save RS model into a file for further training.
+
+2. Sprint 3-4 (03/11 - 03/17): Tool testing and systematic setups.
+- Perform real-time data processing using Redis and Spark, with data visualization using NetworkX and Matplotlib.
+- Set up a basic user interface to apply the use of RS.
+- Test RS model training on small scale with multiple batches, with saving and loading RS model.
+
+3. Sprint 5-6 (03/18 - 03/24): Main event.
+- **Perform real-time RS model training on dataset.**
+- Research and experiment documentation.
+- Application of RS model into the problem.
+
+4. Sprint 7-8 (03/25 - 03/31): Project conclusion.
+- Research and experiment documentation and presentation with Canva [7].
+- Graphical demonstration.
+
+5. Sprint 9+ (04/01 - 04/12): Backup.
 
 ### Assignments
 
-*Note: Date used here is in form YY/MM/DD, time used here is in 24-hour format: HH:MM.*
+*Note: Date used here is in form (YY/)MM/DD, time used here is in 24-hour format: HH:MM.*
 
-The main plan is to divide the workload into sprints throughout the span of 4 weeks, starting from 25/03/03 to 25/04/01.
+**All works must be draft-documented in text files (md, txt, pdf, docs) upon finished working.**
 
-|Sprint no.|Who|Job(s)|Description|Start|Due|Note|
+|Sprint no.|Who|Job(s)|Tool(s)|Start|Due|Note|
 |---|---|---|---|---|---|---|
-|1|Thiện|Potato|Eat potatoes|25/03/03 00:01|25/03/05 23:59|(Empty)|
-
+|1|Kiên|Set up real-time data streaming from database|Redis, Spark|03/04 06:00|03/06 21:00|Write down how to setup|
+|1|Thiện|Figure data preprocessing strategies|Spark|03/04 06:00|03/06 21:00|Explain the strategies|
+|1|Kiệt|Choose and set up RS model, learn its inputs from Spark and outputs|Spark, MLlib|03/04 06:00|03/06 21:00|Explain why choosing the model and how it works briefly|
+|2|Kiên|Configure real-time data streaming from Redis to Spark|Redis, Spark|03/07 06:00|03/10 21:00|Test Spark Streaming techniques if needed.|
+|2|Thiện|Perform data preprocessing on dataset|Spark|03/07 06:00|03/10 21:00|Technique results and plotting if necessary.|
+|2|Kiệt|Figure out how to save RS model into a file for further training|MLlib|03/07 06:00|03/10 21:00|Test and write down how to save and load.|
+|3-4|Kiệt|Perform real-time data processing with data visualization|Redis, Spark, NetworkX, Matplotlib|03/11 06:00|03/17 21:00||
+|3-4|Kiên|Set up basic UI|C++, Python, JavaScript (?)|03/11 06:00|03/17 21:00||
+|3-4|Thiện|Test RS model training on small scale with multiple batches, with saving and loading RS model|Spark, MLlib|03/11 06:00|03/17 21:00||
+|5-6|Kiên|Perform real-time RS model training on dataset|MLlib, Redis, Spark|03/18 06:00|03/21 21:00||
+|5-6|Kiệt|Research and experiment documentation|LaTeX|03/18 06:00|03/24 21:00||
+|6|Thiện|Application of RS model into the problem|C++, Python, JavaScript (?)|03/22 06:00|03/24 21:00||
+|7-8|Kiên|Graphical demonstration|Screen recorder|03/25 06:00|03/31 21:00||
+|7-8|Kiệt|Documentation finishing|LaTeX|03/25 06:00|03/31 21:00||
+|7-8|Thiện|Presentation with Canva|Canva|03/25 06:00|03/31 21:00||
 ## References
 
 [1] Sajid Uddin (2023). Anime Dataset 2023. *Kaggle: Your Machine Learning and Data Science Community*. https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset?resource=download
@@ -98,3 +139,4 @@ The main plan is to divide the workload into sprints throughout the span of 4 we
 
 [6] Aric Hagberg, Pieter Swart, Dan Schult (2005). NetworkX 3.4.2 (2024). https://networkx.org/
 
+[7] Melanie Perkins, Cliff Obrecht, Cameron Adams (2013). Canva. https://canva.com
