@@ -49,21 +49,20 @@ gc.collect()
 #  LƯU ĐIỂM ĐÁNH GIÁ NGƯỜI DÙNG  #
 # ------------------------------ #
 
-# print("Đang đọc file users-score-2023.csv ...")
-# chunk_size = 100000  # Đọc 100,000 dòng mỗi lần để tăng tốc
-# for chunk in pd.read_csv("users-score-2023.csv", chunksize=chunk_size):
-#     #    chunk = chunk.fillna("")  # Xử lý NaN
-#     data = chunk.to_dict(orient="records")
+print("Đang đọc file users-score-2023.csv ...")
+chunk_size = 100000  # Đọc 100,000 dòng mỗi lần để tăng tốc
+for chunk in pd.read_csv("users-score-2023.csv", chunksize=chunk_size):
+     data = chunk.to_dict(orient="records")
 
-#     for row in data:
-#         user_id = row["user_id"]
-#         anime_id = row["anime_id"]
-#         rating = row["rating"]
-#         # Lưu giá trị rating dưới dạng String trong Redis với Key là {user_id}_{anime_id}
-#         r.set(f"{user_id}_{anime_id}", rating)
-# print("Hoàn thành lưu điểm đánh giá vào Redis!")
-# del chunk, data
-# # Giải phóng bộ nhớ
-# gc.collect()
+     for row in data:
+         user_id = row["user_id"]
+         anime_id = row["anime_id"]
+         rating = row["rating"]
+         # Lưu giá trị rating dưới dạng String trong Redis với Key là {user_id}_{anime_id}
+         r.set(f"{user_id}_{anime_id}", rating)
+ print("Hoàn thành lưu điểm đánh giá vào Redis!")
+ del chunk, data
+ # Giải phóng bộ nhớ
+ gc.collect()
 
 print("Dữ liệu đã được lưu vào Redis thành công!")
