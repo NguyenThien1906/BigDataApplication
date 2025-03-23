@@ -80,16 +80,16 @@ The dataset consists mainly of:
 
 The main plan is to divide the workload into 8 sprints throughout the span of 4 weeks, starting from 03/03 to 04/01, meaning 2 sprints per week.
 
-1. Sprint 1-2 (03/04 - 03/10): Preparation.
+1. Sprint 1-2 (03/04 - 03/10): Preparation. (done)
 - Set up Redis database from dataset files and configure real-time data streaming to Spark.
 - Figure data preprocessing strategies, perform data preprocessing on dataset using Spark.
 - Set up RS model from MLlib, learn its required input and output forms for training and testing.
 - Figure out how to save RS model into a file for further training.
 
 2. Sprint 3-4 (03/11 - 03/17): Tool testing and systematic setups.
-- Perform real-time data processing using Redis and Spark, with data visualization using NetworkX and Matplotlib.
+- Join: Redis + Spark, Test real-time data processing using Redis and Spark.
+- Join: Spark + model, Test RS model training on small scale with multiple batches, with saving and loading RS model; with data visualization using NetworkX and Matplotlib.
 - Set up a basic user interface to apply the use of RS.
-- Test RS model training on small scale with multiple batches, with saving and loading RS model.
 
 3. Sprint 5-6 (03/18 - 03/24): Main event.
 - **Perform real-time RS model training on dataset.**
