@@ -1,4 +1,8 @@
 {
+    "Score": [
+        1.85,
+        9.1
+    ],
     "Genres": [
         "Genres_Action",
         "Genres_Award Winning",
@@ -21,6 +25,14 @@
         "Genres_Boys Love",
         "Genres_Hentai",
         "Genres_Erotica"
+    ],
+    "Episodes": [
+        1.0,
+        99.0
+    ],
+    "Premiered": [
+        1961.0,
+        2025.75
     ],
     "Status": [
         "Status_Finished Airing",
@@ -99,6 +111,34 @@
         "Licensors_Geneon Entertainment USA",
         "Licensors_Central Park Media",
         "Licensors_Nozomi Entertainment"
+    ],
+    "Studios": [
+        "Studios_Bones",
+        "Studios_Satelight",
+        "Studios_Sunrise",
+        "Studios_Pierrot",
+        "Studios_AIC",
+        "Studios_Xebec",
+        "Studios_Gonzo",
+        "Studios_A-1 Pictures",
+        "Studios_Madhouse",
+        "Studios_Production I.G",
+        "Studios_Studio Deen",
+        "Studios_Nippon Animation",
+        "Studios_Toei Animation",
+        "Studios_OLM",
+        "Studios_Shaft",
+        "Studios_J.C.Staff",
+        "Studios_Shin-Ei Animation",
+        "Studios_TMS Entertainment",
+        "Studios_DLE",
+        "Studios_Brain's Base",
+        "Studios_Arms",
+        "Studios_Kyoto Animation",
+        "Studios_Tatsunoko Production",
+        "Studios_SILVER LINK.",
+        "Studios_T-Rex",
+        "Studios_Shanghai Animation Film Studio"
     ],
     "Source": [
         "Source_Original",
