@@ -1,0 +1,23 @@
+{
+    "Gender": [
+        "Gender_Male",
+        "Gender_Female",
+        "Gender_Non-Binary"
+    ],
+    "Birthday": [
+        0.40001098842310523,
+        0.4999932730244333
+    ],
+    "Days_Watched": [
+        0.0,
+        5.022591664903154
+    ],
+    "Completed": [
+        0.0,
+        4.121461353545985
+    ],
+    "Episodes_Watched": [
+        0.0,
+        7.528459358189078
+    ]
+}

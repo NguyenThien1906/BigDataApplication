@@ -1,0 +1,10 @@
+{
+    "rating_input" : "input/myRating.csv",
+    "user_dataset_input" : "input/myProfile.csv",
+    "user_dataset_embed_path" : "../../dataset/user_dataset_prep.csv",
+    "anime_dataset_embed_path" : "../../dataset/anime_dataset_prep.csv",
+    "user_dataset_og_path" : "../../dataset/users-details-2023.csv",
+    "user_embed_col_path" : "configs/user_embed_col.json",
+    "anime_embed_col_path" : "configs/anime_embed_col.json",
+    "unified_embed_col_path" : "configs/unified_embed_col.json"
+}
