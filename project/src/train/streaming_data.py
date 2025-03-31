@@ -66,7 +66,7 @@ def show_df(df):
 
 # main streaming
 def streaming(showConsole:bool = False):
-    old_redis_keys = 0
+    old_redis_keys = []
     df = None
     # Streaming simulation loop and update df (updates every 10 seconds)
     while True:
@@ -74,9 +74,12 @@ def streaming(showConsole:bool = False):
         # Get list of keys from Redis
         redis_keys = get_redis_keys()
         if len(redis_keys) != len(old_redis_keys):
+            # Retrieve new keys
+            new_redis_keys = [key if key not in old_redis_keys for key in redis_keys]
+        
             # Divide the key into multiple partitions for Spark to process in parallel
             num_partitions = 500  # Split into 500 partitions
-            rdd_keys = sc.parallelize(redis_keys, numSlices=num_partitions)
+            rdd_keys = sc.parallelize(new_redis_keys, numSlices=num_partitions)
 
             # Use mapPartitions to reduce Redis connection times
             rdd_data = rdd_keys.mapPartitions(fetch_redis_data)
