@@ -73,7 +73,7 @@ def streaming(showConsole:bool = False):
         print("Fetching full data from Redis")
         # Get list of keys from Redis
         redis_keys = get_redis_keys()
-        if len(redis_keys) != old_redis_keys:
+        if len(redis_keys) != len(old_redis_keys):
             # Divide the key into multiple partitions for Spark to process in parallel
             num_partitions = 10  # Split into 500 partitions
             rdd_keys = sc.parallelize(redis_keys, numSlices=num_partitions)
@@ -90,7 +90,7 @@ def streaming(showConsole:bool = False):
             # Show DataFrame
             if showConsole:
                 show_df(df)
-            old_redis_keys = len(redis_keys) #old code: old_redis_keys = redis_keys :))
+            old_redis_keys = redis_keys
         else:
             print("The data set has no changes")
             if showConsole:
