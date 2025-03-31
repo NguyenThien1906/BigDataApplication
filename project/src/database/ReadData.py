@@ -1,13 +1,16 @@
 import redis
 import pandas as pd
 import gc
+import json
+
+json_input_file = "db_config.json"
+config_json = json.load(open(json_input_file, 'r'))
 
 # Kết nối tới Redis
-redis_host = "192.168.126.131"  # Địa chỉ IP của Ubuntu
-redis_port = 6379  # Cổng Redis mặc định
+redis_host = config_json['redis_host']  # Địa chỉ IP của Ubuntu
+redis_port = config_json['redis_port']  # Cổng Redis mặc định
 
 r = redis.Redis(host=redis_host, port=redis_port, decode_responses=True)
-
 
 # ---------------------- #
 #  LƯU THÔNG TIN ANIME   #
@@ -27,6 +30,7 @@ def read_anime_dataset(fname):
     del chunk, data
     # Giải phóng bộ nhớ
     gc.collect()
+
 
 # -------------------------------   #
 #  LƯU THÔNG TIN CÁ NHÂN NGƯỜI DÙNG #
@@ -73,13 +77,14 @@ def read_users_rating(fname):
 
 
 if __name__ == "__main__":
-    fname_anime = "anime-dataset-2023.csv"
-    fname_details = "users-details-2023.csv"
-    fname_rating = "users-score-2023.csv"
+
+    fname_anime = config_json['anime_details']
+    fname_details = config_json['user_details']
+    fname_rating = config_json['anime_ratings']
 
     # Đọc file csv chứa danh sách thông tin anime
     read_anime_dataset(fname_anime)
     # Đọc file csv chứa thông tin của các user
-    read_users_details(fname_details)
+    #read_users_details(fname_details)
     # Đọc file csv chứa danh sách đánh giá các anime
     read_users_rating(fname_rating)

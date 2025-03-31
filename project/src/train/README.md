@@ -1,3 +1,4 @@
 This is repository for data streaming to spark, preprocess then train.
 
-- Execute streaming_data.py in terminal.
+1. Config spark_config.json.
+2. "python streaming_data.py"
