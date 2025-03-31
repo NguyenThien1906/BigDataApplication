@@ -35,7 +35,7 @@ def fetch_redis_data(keys_batch):
     "Fetch data from Redis with smaller batch and check data type before GET"
     r = redis.StrictRedis(host=redis_host, port=redis_port, decode_responses=True)
 
-    batch_size = 10  # Split batches to avoid overloading
+    batch_size = 1000  # Split batches to avoid overloading
     data = []
     keys_batch = list(keys_batch)
     for i in range(0, len(keys_batch), batch_size):
@@ -75,7 +75,7 @@ def streaming(showConsole:bool = False):
         redis_keys = get_redis_keys()
         if len(redis_keys) != len(old_redis_keys):
             # Divide the key into multiple partitions for Spark to process in parallel
-            num_partitions = 10  # Split into 500 partitions
+            num_partitions = 500  # Split into 500 partitions
             rdd_keys = sc.parallelize(redis_keys, numSlices=num_partitions)
 
             # Use mapPartitions to reduce Redis connection times
