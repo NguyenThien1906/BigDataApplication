@@ -4,9 +4,22 @@ import redis
 from pyspark import SparkContext
 import json
 
+# config
+#region
+# ML
+# add stuff here <------------------------------------------------------------------>
+# Spark Streaming
 json_input_file = "spark_config.json"
 config_json = json.load(open(json_input_file, 'r'))
+#endregion
 
+# ML
+#region
+# add stuff here <------------------------------------------------------------------->
+#endregion
+
+# Spark Streaming
+#region
 # Create Spark Session
 spark = SparkSession.builder.appName("RedisToSparkStreaming").getOrCreate()
 sc = spark.sparkContext
@@ -16,7 +29,7 @@ redis_host = config_json['redis_host']
 redis_port = config_json['redis_port']
 batch_size = config_json['batch_size']  # Number of keys per batch
 
-# streaming part
+# main streaming
 def get_redis_keys(showConsole:bool = False):
     "Use SCAN to get a list of keys from Redis"
     r = redis.StrictRedis(host=redis_host, port=redis_port, decode_responses=True)
@@ -50,7 +63,7 @@ def fetch_redis_data(keys_batch):
         values = pipe.execute()
 
         for key, value in zip(valid_keys, values):
-            #if value is not None: #uh... no?
+            #if value is not None: #Thien: maybe no?
             try:
                 user_id, anime_id = key.split("_")
                 rating = float(value)
@@ -75,7 +88,10 @@ def streaming(showConsole:bool = False):
         redis_keys = get_redis_keys()
         if len(redis_keys) != len(old_redis_keys):
             # Retrieve new keys
-            new_redis_keys = [key if key not in old_redis_keys for key in redis_keys]
+            new_redis_keys = []
+            for key in redis_keys:
+                if key not in old_redis_keys:
+                    new_redis_keys.append(key)
         
             # Divide the key into multiple partitions for Spark to process in parallel
             num_partitions = 500  # Split into 500 partitions
@@ -83,9 +99,6 @@ def streaming(showConsole:bool = False):
 
             # Use mapPartitions to reduce Redis connection times
             rdd_data = rdd_keys.mapPartitions(fetch_redis_data)
-            
-            # Filter empty keys from recently received keys
-            rdd_data = rdd_data.filter(lambda x: x is not None)
 
             # Convert to DataFrame
             df = spark.createDataFrame(rdd_data, ["user_id", "anime_id", "rating"])
@@ -101,6 +114,9 @@ def streaming(showConsole:bool = False):
 
         print("Wait 10 seconds before retrieving new data...")
         time.sleep(10)  # Wait 10 seconds before retrieving next data
+        
+        # Spark: ML model training here
 
 if __name__ == "__main__":
     streaming(showConsole=False)
+#region
