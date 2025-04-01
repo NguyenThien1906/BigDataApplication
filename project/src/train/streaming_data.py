@@ -3,6 +3,7 @@ from pyspark.sql import SparkSession
 import redis
 from pyspark import SparkContext
 import json
+import os
 
 # config
 #region
@@ -30,16 +31,27 @@ redis_port = config_json['redis_port']
 batch_size = config_json['batch_size']  # Number of keys per batch
 
 # main streaming
-def get_redis_keys(showConsole:bool = False):
+def check_ratingKeys(key):
+    if not isinstance(key, str):
+        return False
+    try:
+        user, anime = key.split("_")
+    except ValueError:
+        return False
+    return (user.isdigit() and anime.isdigit())
+    
+def get_ratingKeys(showConsole:bool = False):
     "Use SCAN to get a list of keys from Redis"
     r = redis.StrictRedis(host=redis_host, port=redis_port, decode_responses=True)
     cursor = 0
     keys = []
     while True:
         cursor, batch_keys = r.scan(cursor, count=batch_size)
-        keys.extend(batch_keys)
         if cursor == 0:  # Out of keys in Redis
             break
+        for key_i in batch_keys:
+            if check_ratingKeys(key_i):
+                keys.append(key_i)
     if showConsole:
         print(f"Number of keys currently in Redis: {len(keys)}")
     return keys
@@ -79,13 +91,18 @@ def show_df(df):
 
 # main streaming
 def streaming(showConsole:bool = False):
+    run_iter = 0
     old_redis_keys = []
     df = None
     # Streaming simulation loop and update df (updates every 10 seconds)
     while True:
-        print("Fetching full data from Redis")
+        run_iter += 1
+        os.system('cls' if os.name == 'nt' else 'clear')
+        print(f"Streaming iter: {run_iter}.")
+    
+        print("Fetching data from Redis...")
         # Get list of keys from Redis
-        redis_keys = get_redis_keys()
+        redis_keys = get_ratingKeys()
         if len(redis_keys) != len(old_redis_keys):
             # Retrieve new keys
             new_redis_keys = []
@@ -94,7 +111,7 @@ def streaming(showConsole:bool = False):
                     new_redis_keys.append(key)
         
             # Divide the key into multiple partitions for Spark to process in parallel
-            num_partitions = 500  # Split into 500 partitions
+            num_partitions = 100
             rdd_keys = sc.parallelize(new_redis_keys, numSlices=num_partitions)
 
             # Use mapPartitions to reduce Redis connection times
@@ -108,7 +125,7 @@ def streaming(showConsole:bool = False):
                 show_df(df)
             old_redis_keys = redis_keys
         else:
-            print("The data set has no changes")
+            print("No new data to show.")
             if showConsole:
                 show_df(df)
 
