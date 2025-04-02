@@ -10,4 +10,5 @@
 |3|Kiệt|Redis DB - Spark Streaming - ALS training with user-score and data visualization|03/31 12:00|04/02 21:00|Set up DB, set up Spark Streaming and data preprocessing, model training, data visualization|
 |3|Kiên|Research reports: ALS|03/31 12:00|04/02 21:00|Set up LaTeX directory; Find out how ALS algorithm works; Add citations|
 |4|Thiện|Re-build Spark processing pipeline feeding to Keras|04/03 06:00|04/04 21:00||
-|4|Kiệt|Model training with Big Data visualization|
+|4|Kiệt|Big Data visualization on Spark dataFrame|04/03 06:00|04/04 21:00||
+|4|Kiên|<to be added>|--/-- --:--|--/-- --:--||
