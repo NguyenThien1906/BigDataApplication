@@ -13,3 +13,6 @@
 |4|Thiện|Advanced Spark processing pipeline|04/03 06:00|04/04 21:00||
 |4|Kiệt|Keras training on Spark DF|04/03 15:00|04/04 21:00||
 |4|Kiên|(None, check seminar)|--/-- --:--|--/-- --:--||
+|5|Thiện|Data preprocess: fill; Tensorflow data from Spark to Keras|04/06 12:00|04/07 21:00||
+|5|Kiệt|Data visualization|04/06 12:00|04/07 21:00||
+|5|Kiên|RS deploy using Keras model|04/06 12:00|04/07 21:00||
