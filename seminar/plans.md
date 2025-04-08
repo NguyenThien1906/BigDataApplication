@@ -1,8 +1,8 @@
 ## Sprint plan:
 **Sprint 4 (25/04/08).**
-  + \[Thiện\] Report (text + image): Further discussions (dependency: S3-PL)
+  + \[Thiện\] Report (text + image): Further discussions (dependency: S3-PL), Experiment: model ablation and hyper-parameters.
   + \[Kiệt\] Report: demonstrate test run: environment, input, output, comparison to some other models. (Use small dataset)
-  + \[Kiên\] Presentation: Abstract + Problem + ACR (dependency: S1-AP + S2-ACR)
+  + \[Kiên\] Presentation: Abstract + Problem + ACR (dependency: S1-AP + S2-ACR), CKD + Component Models (dependency: S1-CKD + S1-CM)
 
 ## Not applied anymore.
 ### Sprint plans:
