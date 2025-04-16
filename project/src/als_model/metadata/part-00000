@@ -1,0 +1,1 @@
+{"class":"org.apache.spark.ml.recommendation.ALSModel","timestamp":1744655782567,"sparkVersion":"3.5.5","uid":"ALS_7622bd5c9544","paramMap":{"itemCol":"anime_encoded","coldStartStrategy":"drop","blockSize":4096,"userCol":"user_encoded"},"defaultParamMap":{"itemCol":"item","predictionCol":"prediction","coldStartStrategy":"nan","blockSize":4096,"userCol":"user"},"rank":10}
