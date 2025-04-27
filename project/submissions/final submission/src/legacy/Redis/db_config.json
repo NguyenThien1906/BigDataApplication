@@ -1,0 +1,7 @@
+{
+    "redis_host": "127.0.0.1",
+    "redis_port": 6379,
+    "anime_details": "db_files/anime-dataset-2023.csv",
+    "user_details": "db_files/users-details-2023.csv",
+    "anime_ratings": "db_files/users-score-2023_short.csv"
+}
