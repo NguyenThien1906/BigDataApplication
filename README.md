@@ -1,8 +1,7 @@
-# BigDataApplication
-Dành cho seminar của môn Ứng dụng Dữ liệu lớn.
+For CSC14114 - Big Data Application project 
 
-Thông tin nhóm:
-| MSSV | Họ tên | 
+Team information:
+| Student ID | Name | 
 |---|---|
 | 21127170 | Nguyễn Thế Thiện|
 | 21127326 | Nguyễn Trần Trung Kiên |
