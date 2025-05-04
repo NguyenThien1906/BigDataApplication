@@ -22,14 +22,14 @@ We perform data pre-processing on a large static dataset (> 1 GB worth of data i
 The work is as follows:
 
 ### Data pre-processing
-![Images](/Big%20Data%20Application/git/images/prep1.png)
+![Images](images/prep1.png)
 
 We use [Anime Dataset 2023](https://www.kaggle.com/datasets/dbdmobile/myanimelist-dataset?resource=download) from Kaggle as a collection of user ratings, and registered users and anime titles on MyAnimeList - one of the biggest anime platforms.
 
 In summary, we extract user and anime features from user and anime information files (**user-details-2023.csv**, **anime-dataset-2023.csv**), then join with user ratings (**users-score-2023.csv**) to a unified dataset. This unified dataset shall be slightly altered to match model input form.
 
 ### Model research
-![ALS model](/Big%20Data%20Application/git/images/model1.png)
+![ALS model](images/model1.png)
 
 Alternating Least Squares (ALS) is a Matrix Factorization model by using matrix multiplication approximation. The whole purpose is to guess the missing ratings based on the underlying patterns in the given ratings.
 
@@ -37,15 +37,15 @@ Alternating Least Squares (ALS) is a Matrix Factorization model by using matrix 
 
 #### Recommendation list
 
-![Recommendation list for user 834209](/Big%20Data%20Application/git/images/insight1.png)
+![Recommendation list for user 834209](images/insight1.png)
 
-![Genre distribution in recommendation list for user 834209](/Big%20Data%20Application/git/images/insight2.png)
+![Genre distribution in recommendation list for user 834209](images/insight2.png)
 
-![Prediction results for all users](/Big%20Data%20Application/git/images/insight3.png)
+![Prediction results for all users](images/insight3.png)
 
 #### Model comparison
 
-![Comparison: ALS vs. SVD](/Big%20Data%20Application/git/images/insight4.png)
+![Comparison: ALS vs. SVD](images/insight4.png)
 
 
 
